@@ -1,6 +1,8 @@
 namespace apbd_s33996_lab3.Enums;
 
-public class EquipmentStatus
+public enum EquipmentStatus
 {
-    
+    Available,
+    Rented,
+    Unavailable
 }
