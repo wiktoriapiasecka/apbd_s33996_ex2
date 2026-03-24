@@ -13,20 +13,30 @@ public class ReportService
         _equipmentRepository = equipmentRepository;
         _rentalRepository = rentalRepository;
     }
-
+    
     public void PrintSummary()
     {
         var equipment = _equipmentRepository.GetAll();
         var rentals = _rentalRepository.GetAll();
 
-        Console.WriteLine("===== RAPORT KOŃCOWY =====");
-        Console.WriteLine($"Liczba wszystkich sprzętów: {equipment.Count}");
-        Console.WriteLine($"Dostępne: {equipment.Count(e => e.Status == EquipmentStatus.Available)}");
-        Console.WriteLine($"Wypożyczone: {equipment.Count(e => e.Status == EquipmentStatus.Rented)}");
-        Console.WriteLine($"Niedostępne: {equipment.Count(e => e.Status == EquipmentStatus.Unavailable)}");
-        Console.WriteLine($"Liczba wszystkich wypożyczeń: {rentals.Count}");
-        Console.WriteLine($"Aktywne wypożyczenia: {rentals.Count(r => r.IsActive)}");
-        Console.WriteLine($"Przeterminowane wypożyczenia: {rentals.Count(r => r.IsOverdue)}");
-        Console.WriteLine($"Suma naliczonych kar: {rentals.Sum(r => r.Penalty)} zł");
+        Console.WriteLine("=================================");
+        Console.WriteLine("         RAPORT KOŃCOWY          ");
+        Console.WriteLine("=================================");
+        Console.WriteLine();
+
+        Console.WriteLine("Sprzęt:");
+        Console.WriteLine($"- Wszystkie urządzenia: {equipment.Count}");
+        Console.WriteLine($"- Dostępne: {equipment.Count(e => e.Status == EquipmentStatus.Available)}");
+        Console.WriteLine($"- Wypożyczone: {equipment.Count(e => e.Status == EquipmentStatus.Rented)}");
+        Console.WriteLine($"- Niedostępne: {equipment.Count(e => e.Status == EquipmentStatus.Unavailable)}");
+        Console.WriteLine();
+
+        Console.WriteLine("Wypożyczenia:");
+        Console.WriteLine($"- Wszystkie wypożyczenia: {rentals.Count}");
+        Console.WriteLine($"- Aktywne wypożyczenia: {rentals.Count(r => r.IsActive)}");
+        Console.WriteLine($"- Przeterminowane wypożyczenia: {rentals.Count(r => r.IsOverdue)}");
+        Console.WriteLine($"- Suma naliczonych kar: {rentals.Sum(r => r.Penalty)} zł");
+        Console.WriteLine();
+        Console.WriteLine("=================================");
     }
 }
