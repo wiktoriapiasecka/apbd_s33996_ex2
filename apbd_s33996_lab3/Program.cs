@@ -14,7 +14,9 @@ var userService = new UserService(userRepository);
 var rentalService = new RentalService(rentalRepository, userRepository, equipmentRepository);
 var reportService = new ReportService(equipmentRepository, rentalRepository);
 
-Console.WriteLine("===== SYSTEM WYPOŻYCZALNI SPRZĘTU =====");
+Console.WriteLine("======================================");
+Console.WriteLine("   SYSTEM UCZELNIANEJ WYPOŻYCZALNI    ");
+Console.WriteLine("======================================");
 Console.WriteLine();
 
 var laptop1 = new Laptop("Dell Latitude 5540", "Intel i7", 16);
